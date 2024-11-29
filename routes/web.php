@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\authController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('accueil');
 });
+
+
+Route::get('/login', [authController::class, 'login'])->name('login');
+Route::post('/login', [authController::class, 'doLogin']);
+
+Route::delete('/logout', [authController::class, 'logout'])->name('logout');
+
+Route::get('/register', [authController::class, 'register'])->name('register');
+Route::post('/register', [authController::class,'inscription']);
