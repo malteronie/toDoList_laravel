@@ -1,4 +1,4 @@
-<a href="/">Home</a>
+<a href="{{route('home')}}">Home</a>
 
 
 <center><h1>Se Connecter</h1>
@@ -19,7 +19,7 @@
             </div>
 
             <div class="form-group">
-                <label for="password">password</label>
+                <label for="password">Password</label>
                 <input type="password" id="password" name="password">
                 @if ($errors->has('password'))
                 <p class="error">{{$errors->first('password')}}</p>

@@ -29,7 +29,7 @@ class authController extends Controller
         $user = new User;
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->mot_de_passe = Hash::make($request->mot_de_passe);
+        $user->password = Hash::make($request->password);
         
         
         $donnes = array_map('htmlspecialchars', $user->getAttributes());
@@ -41,10 +41,9 @@ class authController extends Controller
 
     public function doLogin(LoginRequest $request){
         $credentials = $request->validated();
-
         if(Auth::attempt($credentials)){
             $request->session()->regenerate();
-            return redirect()->intended(route('home'));
+            return redirect()->route('home');
         }
         return to_route('login')->withErrors([
             'email' => 'Vos identifiants sont incorrects'

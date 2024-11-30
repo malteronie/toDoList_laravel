@@ -17,11 +17,11 @@ return new class extends Migration
         Schema::create('taches', function (Blueprint $table) {
             $table->id('id_tache');
             $table->text('description');
-            $table->enum('etat', ['à faire', 'en cours', 'terminée']);
+            // $table->enum('etat', ['à faire', 'en cours', 'terminée'])->nullable();
             $table->timestamp('date_creation')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->enum('priorite', ['basse', 'moyenne', 'haute']);
-            $table->date('date_echeance');
-            $table->string('email', 100);
+            $table->date('date_echeance')->nullable();
+            $table->string('email', 100)->nullable();
             $table->foreign('email')->references('email')->on('users');
             $table->timestamps();
         });

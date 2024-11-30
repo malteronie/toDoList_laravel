@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-<center><button><h3><a href="taches.php">Voir ma liste des tâches</a></h3></button></center><br><br>
+<center><button><h3><a href="{{route('taches')}}">Voir ma liste des tâches</a></h3></button></center><br><br>
 <form action="list.php" method="post" style="border: 2px solid black;">
     <div style="margin: 10px;">
         <h1 style="border-bottom: solid 1px black;width:37%">Ajouter Une Tâche</h1>

@@ -16,10 +16,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('accueil');
-});
+})->name('home');
+Route::get('/', function(){
+    return view('tache');
+})->name('taches');
 
-
-Route::get('/login', [authController::class, 'login'])->name('login');
+Route::get('/login', [authController::class, 'login'])->name('test');
 Route::post('/login', [authController::class, 'doLogin']);
 
 Route::delete('/logout', [authController::class, 'logout'])->name('logout');
